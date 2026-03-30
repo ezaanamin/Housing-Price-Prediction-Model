@@ -1,59 +1,64 @@
-# Housing Price Prediction Model
+# 🏠 Housing Price Prediction App
 
-This repository contains a machine learning model for predicting housing prices. The project was created as a learning exercise to understand the fundamentals of data preprocessing, feature engineering, model selection, and evaluation.
+A professional, end-to-end machine learning application that predicts California residential property values using a Random Forest model and a modern, high-end web dashboard.
 
-## Project Overview
+![Project Preview](https://img.shields.io/badge/ML-Random%20Forest-blueviolet?style=for-the-badge)
+![UI](https://img.shields.io/badge/UI-Glassmorphism-blue?style=for-the-badge)
+![Backend](https://img.shields.io/badge/Backend-Flask-lightgrey?style=for-the-badge)
 
-The objective of this project is to build a predictive model that estimates the prices of houses based on various features. The model is trained on a dataset containing information about different houses, such as their size, location, number of rooms, and other relevant attributes.
+## ✨ Features
 
-## Data
+- **Modern Dashboard**: Premium dark-mode interface with glassmorphism effects.
+- **Real-time Inference**: Input property details and get instant price estimates.
+- **Advanced Preprocessing**: Comprehensive feature engineering including log transformations and geographic feature creation.
+- **Robust Model**: Powered by a Scikit-Learn `RandomForestRegressor` for high-accuracy predictions.
 
-The dataset used for this project is the [California Housing Prices dataset](https://www.kaggle.com/datasets/camnugent/california-housing-prices). It includes the following features:
+## 📁 Repository Structure
 
-- **longitude:** The longitude coordinate of the house.
-- **latitude:** The latitude coordinate of the house.
-- **housing_median_age:** The median age of the houses in the area.
-- **total_rooms:** The total number of rooms in the house.
-- **total_bedrooms:** The total number of bedrooms in the house.
-- **population:** The population of the area.
-- **households:** The number of households in the area.
-- **median_income:** The median income of households in the area.
-- **median_house_value:** The median value of the houses (target variable).
-- **ocean_proximity:** The proximity of the house to the ocean.
+- `app.py`: The Flask server and prediction API.
+- `train_model.py`: Training pipeline that exports the optimized model and scaler.
+- `index.py`: Exploratory Data Analysis (EDA) and model experimentation script.
+- `templates/`: HTML structures for the frontend.
+- `static/`: CSS styling and JavaScript interactivity.
+- `housing.csv`: The California Housing Prices dataset.
+- `requirements.txt`: Project dependencies.
 
-## Project Structure
+## 🚀 Setup and Installation
 
-The project is organized as follows:
-- `housing.csv`: The dataset containing housing information.
-- `index.py`: The main script for data preprocessing, model training, and evaluation.
-- `requirements.txt`: File listing the required Python packages.
-- `README.md`: Project documentation.
-
-## Setup and Installation
-
-To run this project locally, follow these steps:
-
-1. Clone the repository:
-    ```bash
-    git clone https://github.com/yourusername/Housing_Price_Prediction_Model.git
-    cd Housing_Price_Prediction_Model
-    ```
-
-2. Create a virtual environment and activate it:
-    ```bash
-    python -m venv env
-    source env/bin/activate  # On Windows, use `env\Scripts\activate`
-    ```
-
-3. Install the required packages:
-    ```bash
-    pip install -r requirements.txt
-    ```
-
-## Usage
-
-To run the model, execute the following command:
+### 1. Clone & Navigate
 ```bash
-python index.py
+git clone https://github.com/yourusername/Housing-Price-Prediction-Model.git
+cd Housing-Price-Prediction-Model
+```
 
+### 2. Install Dependencies
+```bash
+pip install -r requirements.txt
+pip install flask joblib  # Extra dependencies for the UI
+```
 
+### 3. Train the Model
+Before running the UI, you must train the model to generate the required `.joblib` files:
+```bash
+python3 train_model.py
+```
+
+### 4. Start the Application
+Launch the Flask web server:
+```bash
+python3 app.py
+```
+Open your browser to `http://127.0.0.1:5000` to interact with the dashboard.
+
+## 📊 Data Insights
+
+The model utilizes the [California Housing Prices dataset](https://www.kaggle.com/datasets/camnugent/california-housing-prices), analyzing features such as:
+- **Location**: Longitude, Latitude, and Ocean Proximity.
+- **Property Specs**: Total Rooms, Bedrooms, and Housing Age.
+- **Demographics**: Population, Households, and Median Income.
+
+## 🛠️ Technology Stack
+- **Languages**: Python, HTML, JavaScript
+- **ML Frameworks**: Scikit-Learn, Pandas, NumPy
+- **Web Backend**: Flask
+- **Styling**: Vanilla CSS (Modern CSS3 with Glassmorphism)

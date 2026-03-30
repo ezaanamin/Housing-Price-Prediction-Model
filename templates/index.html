@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Housing Price Prediction</title>
+    <link rel="stylesheet" href="../static/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/js/all.min.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1><i class="fas fa-home"></i> Housing Prediction</h1>
+            <p>Predict residential property values with AI precision</p>
+        </header>
+
+        <main>
+            <form id="prediction-form" class="prediction-card">
+                <div class="form-grid">
+                    <!-- Column 1 -->
+                    <div class="form-section">
+                        <h3>Location Data</h3>
+                        <div class="input-group">
+                            <label for="longitude">Longitude</label>
+                            <input type="number" step="0.0001" id="longitude" name="longitude" value="-122.23" required>
+                            <span class="info">-124 to -114</span>
+                        </div>
+                        <div class="input-group">
+                            <label for="latitude">Latitude</label>
+                            <input type="number" step="0.0001" id="latitude" name="latitude" value="37.88" required>
+                            <span class="info">32 to 42</span>
+                        </div>
+                        <div class="input-group">
+                            <label for="ocean_proximity">Ocean Proximity</label>
+                            <select id="ocean_proximity" name="ocean_proximity" required>
+                                <option value="<1H OCEAN">&lt;1H Ocean</option>
+                                <option value="INLAND">Inland</option>
+                                <option value="ISLAND">Island</option>
+                                <option value="NEAR BAY" selected>Near Bay</option>
+                                <option value="NEAR OCEAN">Near Ocean</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Column 2 -->
+                    <div class="form-section">
+                        <h3>Property Specs</h3>
+                        <div class="input-group">
+                            <label for="housing_median_age">Median House Age (years)</label>
+                            <input type="number" id="housing_median_age" name="housing_median_age" value="41" required>
+                        </div>
+                        <div class="input-group">
+                            <label for="total_rooms">Total Rooms</label>
+                            <input type="number" id="total_rooms" name="total_rooms" value="880" required>
+                        </div>
+                        <div class="input-group">
+                            <label for="total_bedrooms">Total Bedrooms</label>
+                            <input type="number" id="total_bedrooms" name="total_bedrooms" value="129" required>
+                        </div>
+                    </div>
+
+                    <!-- Column 3 -->
+                    <div class="form-section">
+                        <h3>Demographics</h3>
+                        <div class="input-group">
+                            <label for="population">Total Population</label>
+                            <input type="number" id="population" name="population" value="322" required>
+                        </div>
+                        <div class="input-group">
+                            <label for="households">Total Households</label>
+                            <input type="number" id="households" name="households" value="126" required>
+                        </div>
+                        <div class="input-group">
+                            <label for="median_income">Median Income ($10k units)</label>
+                            <input type="number" step="0.0001" id="median_income" name="median_income" value="8.3252" required>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="action-footer">
+                    <button type="submit" id="predict-btn">
+                        <span>Predict Price</span>
+                        <div class="loader" id="loader"></div>
+                    </button>
+                </div>
+            </form>
+
+            <div id="result-card" class="result-card hidden">
+                <div class="result-content">
+                    <h3>Estimated Value</h3>
+                    <div class="price-badge">$<span id="predicted-price">0.00</span></div>
+                    <p class="price-disclaimer">This value is an estimate based on the provided features and trained model data.</p>
+                    <button id="reset-btn" class="secondary-btn">New Prediction</button>
+                </div>
+            </div>
+            
+            <div id="error-toast" class="error-toast hidden">
+                <i class="fas fa-exclamation-circle"></i>
+                <span id="error-message">Error processing prediction.</span>
+            </div>
+        </main>
+        
+        <footer>
+            <p>&copy; 2026 AI Housing Insights • Powered by Scikit-Learn</p>
+        </footer>
+    </div>
+    <script src="../static/script.js"></script>
+</body>
+</html>
